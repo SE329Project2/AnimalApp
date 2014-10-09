@@ -18,15 +18,8 @@ public class HomeActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		
-		animalList.add("Cow");
-		animalList.add("Pig");
-		
-		Spinner animalSpinner = (Spinner) findViewById(R.id.animalSpinner);
-		ArrayAdapter<String> animalSpinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, animalList);
-		animalSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		animalSpinner.setAdapter(animalSpinnerAdapter);
-		
-		
+		initList();
+		initDropdownSpinner();
 	}
 
 	@Override
@@ -46,5 +39,17 @@ public class HomeActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void initList() {
+		animalList.add("Cow");
+		animalList.add("Pig");
+	}
+	
+	public void initDropdownSpinner() {
+		Spinner animalSpinner = (Spinner) findViewById(R.id.animalSpinner);
+		ArrayAdapter<String> animalSpinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, animalList);
+		animalSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		animalSpinner.setAdapter(animalSpinnerAdapter);
 	}
 }
